@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A read on where AI fits in UnDelay's stack, and where traditional code still wins</title>
+<meta name="description" content="Saw the Love Field post. UnDelay GPT on Llama 3, three people on the team. I have a hypothesis about where that assistant's context layer breaks in the next ninety days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <a class="logo-lockup" href="https://www.undelayapp.com" target="_blank" rel="noopener" aria-label="UnDelay home">
+      <img src="logo.png" alt="UnDelay">
+    </a>
+    <span class="hint">Prepared for Safir Monroe</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Booth read &middot; SS57</p>
+      <h1>A read on where AI fits in UnDelay's stack, <span class="split">and where traditional code still wins.</span></h1>
+      <p class="hero-sub">One page. One hypothesis about your context layer at Love Field. A specific next step if it lands.</p>
+
+      <div class="hero-meta">
+        <div class="meta-item">
+          <span class="meta-label">Audience</span>
+          <span class="meta-value">UnDelay GPT on Llama 3</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Scope</span>
+          <span class="meta-value">Context architecture, 3-person team</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Format</span>
+          <span class="meta-value">30-minute call</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="grid">
+    <aside class="sidelabel">
+      The Pitch
+      <span>A peer read from someone who has already written the paper on your next architecture decision.</span>
+    </aside>
+
+    <article class="prose">
+      <p>Safir, you are running a three-person team that just stood up an LLM assistant on Llama 3 at a 23 million passenger airport, you landed in Microsoft for Startups, and you are on the 2025 Forbes 30 Under 30 list. That is a lot of surface for a pre-seed team. Most of the work still ahead of you is not AI work. It is context architecture, process design, and the unglamorous middle layer between the radio transcripts and the airport ops dashboard.</p>
+
+      <p>Here is how we would think about UnDelay's stack specifically. Call it a 60/30/10 read.</p>
+
+      <section class="stack" aria-label="60/30/10 read of UnDelay's stack">
+        <p class="stack-title">60 / 30 / 10 &middot; UnDelay stack read</p>
+        <div class="stack-row">
+          <div class="stack-pct">60%</div>
+          <div class="stack-desc"><strong>Traditional code.</strong> Ingesting radio audio, running transcription, structuring events, dispatching to the dashboard, handling the virtual taxi queue. Postgres and a few well-named services do this work better, cheaper, and with better guarantees than any LLM.</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-pct">30%</div>
+          <div class="stack-desc"><strong>Rule-based logic.</strong> When does a curb event escalate, when does a taxi slot open, when does an airline ops seat get paged. Rules, state machines, human-readable policies.</div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-pct ai">10%</div>
+          <div class="stack-desc"><strong>Genuine AI.</strong> Where UnDelay GPT actually earns its keep: summarizing a messy situation for a ground ops lead, answering a natural-language question against the event log, suggesting a reroute when the usual playbook does not apply.</div>
+        </div>
+      </section>
+
+      <p>That ten percent is where the context architecture matters, and it is also where a small team burns weekends if the context is not organized.</p>
+
+      <p>My colleague Jake wrote a paper on exactly this problem. Interpretable Context Methodology, submitted to ACM TiiS, open source under MIT. It treats agent context as a layered filesystem, L0 identity through L4 working artifacts, with measurable interpretability gains. A 52-member practitioner community, a U-shaped edit pattern across real teams. The short version: a three-person team can keep an assistant coherent across four airports if the context is laid out this way, and cannot if it is not. Repo: <a href="https://github.com/RinDig/Interpretable-Context-Methodology-ICM-" target="_blank" rel="noopener">github.com/RinDig/Interpretable-Context-Methodology-ICM-</a>.</p>
+
+      <div class="pullquote">
+        <span class="tag">Matching engagement</span>
+        The engagement that maps cleanest to where UnDelay sits today is Feeld. Feeld is a product company. Their CTO bought a scoped sprint: one workshop, a handful of advisory calls, an Organizational Context Architecture, and a Strategic Operations Framework. The CTO walked out with a layout his team could actually maintain. That shape, not a six-figure consulting project, is the realistic first engagement for UnDelay, whenever the seed closes.
+      </div>
+
+      <p>One more thing worth saying out loud. Eduba partners with <a href="https://www.nlplogix.com" target="_blank" rel="noopener">NLP Logix</a> for work that sits below the orchestration layer. NLP Logix has been in machine learning since 2011 and runs over 150 data scientists. If the seed closes and UnDelay needs a real production ML pipeline for the transcription layer, that is NLP's lane. Matt can make the introduction when the time is right.</p>
+
+      <p>Jake also built an online community to 22,000 members in five weeks. Mentioning it only because audience matters: Safir, you know what distribution feels like from the inside.</p>
+
+      <p>For context on how Eduba thinks about governance when any of this touches regulated buyers, the Ethics Engine is a psychometric assessment tool for evaluating ideological and moral patterns in LLMs. Paper: <a href="https://arxiv.org/abs/2510.11742" target="_blank" rel="noopener">arxiv.org/abs/2510.11742</a>. Repo: <a href="https://github.com/RinDig/AuditEngine" target="_blank" rel="noopener">github.com/RinDig/AuditEngine</a>.</p>
+
+      <section class="cta" aria-label="Call to action">
+        <div class="cta-inner">
+          <div>
+            <p class="cta-eyebrow">Next step</p>
+            <h2 class="cta-heading">30 minutes with Matt Creamer</h2>
+            <p class="cta-body">Matt Creamer, CRO at Eduba. <strong>Bring one workflow you hate.</strong> We will do a live read on the context layer and share the ICM layout that applies to UnDelay GPT.</p>
+          </div>
+          <a class="btn" href="https://calendly.com/thecro-eduba/30min" target="_blank" rel="noopener">
+            Book 30 minutes
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </section>
+    </article>
+  </div>
+</main>
+
+<footer>
+  Prepared by Eduba &middot; <a href="https://eduba.io" target="_blank" rel="noopener">eduba.io</a>
+</footer>
+
+</body>
+</html>
